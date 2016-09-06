@@ -69,6 +69,7 @@ namespace DependencyInjectionTest
 
             IServiceProvider provider = services.BuildServiceProvider();
 
+            // here it will calll the multiple parameter construstor, dig deep?
             ConstructorDependency3 c = provider.GetRequiredService<ConstructorDependency3>();
 
             Assert.NotNull(c);
@@ -117,6 +118,10 @@ namespace DependencyInjectionTest
 
     public class OtherClass : IOtherInteface
     {
+        public OtherClass()
+        {
+            Console.WriteLine("In OtherClass Constructor!");
+        }
     }
 
 
@@ -124,7 +129,15 @@ namespace DependencyInjectionTest
     {
         private IMyInterface _my;
 
+       
         public ConstructorDependency3(IMyInterface my, IOtherInteface otherData)
+        {
+            _my = my;
+
+            Console.WriteLine("In ConstructorDependency3 two interfaces Constructor!");
+        }
+
+        public ConstructorDependency3(IMyInterface my)
         {
             _my = my;
 
