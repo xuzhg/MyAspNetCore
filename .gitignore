@@ -1,29 +1,37 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
+[Bb]in
+[Oo]bj
+[Tt]est[Rr]esults
+*.suo
+*.user
+*.[Cc]ache
+*[Rr]esharper*
+packages
+NuGet.exe
+_[Ss]cripts
 *.exe
-*.out
-*.app
+*.dll
+*.nupkg
+*.dot[Cc]over
+*.vsp
+*.psess
+*.orig
+*.sln.ide
+.nuget/
+*.sln.ide/
+_ReSharper.*/
+packages/
+artifacts/
+PublishProfiles/
+.vs/
+debugSettings.json
+project.lock.json
+*.docstates
+*net45.csproj
+*net451.csproj
+*k10.csproj
+*.pidb
+*.userprefs
+*DS_Store
+*.ncrunchsolution
+*.*sdf
+*.ipch
