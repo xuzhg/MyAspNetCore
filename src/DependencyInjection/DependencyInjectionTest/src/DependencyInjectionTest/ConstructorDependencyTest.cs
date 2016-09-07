@@ -130,7 +130,7 @@ namespace DependencyInjectionTest
         private IMyInterface _my;
 
        
-        public ConstructorDependency3(IMyInterface my, IOtherInteface otherData)
+        public ConstructorDependency3(IMyInterface my, IOtherInteface otherData/*, int a*/)
         {
             _my = my;
 
