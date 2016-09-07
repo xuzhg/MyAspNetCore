@@ -40,3 +40,12 @@ DIClass c = provider.GetRequiredService<DIClass>(); // here will call MyClass co
 ```
 
 **Where**, `c` will be a valid object.
+
+
+### Action parameter injection with [FromServices] attribute
+
+```C#
+public IActionResult About([FromServices] IMyInterface myInterface)
+{
+}
+```
