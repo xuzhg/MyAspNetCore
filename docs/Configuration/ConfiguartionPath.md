@@ -47,3 +47,24 @@ string parent2 = ConfigurationPath.GetParentPath(path2); // parent2 == "x:y"
 string parent3 = ConfigurationPath.GetParentPath(ConfigurationPath.GetParentPath(path1)); // parent3 == "a"
 ```
 
+GetParentPath(...) will return `null` if the given path is
+- null
+- ""
+- any string without delimiter
+  
+Besides, you can travel the path parent using:
+```C#
+string parent = path1;
+while(parent != null)
+{
+  Console.WriteLine(parent);
+  parent = ConfigurationPath.GetParentPath(parent);
+}
+```
+
+The output is:
+```txt
+a:b:c
+a:b
+a
+```
