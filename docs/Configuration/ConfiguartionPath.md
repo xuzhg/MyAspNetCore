@@ -1,4 +1,4 @@
-[### What's Configuration Path
+### What's Configuration Path
 
 A <strong> configuration path</strong> is a **string** separate from a delimiter. The default delimiter in ASP.NET Core Configuration is ":".
 
