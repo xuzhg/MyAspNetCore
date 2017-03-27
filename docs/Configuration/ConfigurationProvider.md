@@ -46,7 +46,8 @@ var dic = new Dictionary<string, string>
 {
       {"Section:Integer", "-2"},
       {"Section:Boolean", "TRUe"},
-      {"Section:Nested:Integer", "11"},
+
+{"Section:Nested:Integer", "11"},
       {"Section:Virtual", "Sup"}
 };
 var configurationBuilder = new ConfigurationBuilder();
@@ -57,7 +58,7 @@ var config = configurationBuilder.Build();
 
 ## CommandLineConfigurationProvider
 
-It's concrete class derived from `ConfigurationProvider`.
+It's a concrete class derived from `ConfigurationProvider`.
 
 #### switchMappings
 The switch is key to key mapping. for example:
@@ -91,3 +92,71 @@ var args = new string[]
 ```
 the arg key must start with `--` or `-` or `/`. It can contain `=`.
 
+## EnvironmentVariablesConfigurationProvider
+
+It's a concrete class derived from `ConfigurationProvider`. 
+It overrides the `Load()` method to parse the environment variables.
+```C#
+public override void Load()
+{
+   Load(Environment.GetEnvironmentVariables());
+}
+```
+
+## DockerSecretsConfigurationProvider
+It's a concrete class derived from `ConfigurationProvider`. 
+It overrides the `Load()` method to parse the secret files in the secret directory.
+The key is the file name, the value is the file content.
+
+## FileConfigurationProvider
+
+It's an abstract class derived from `ConfigurationProvider`. 
+It's the based class for 
+- IniConfigurationProvider
+- JsonConfigurationProvider
+- XmlConfigurationProvider
+
+Each sub class will override the method:
+```C#
+public abstract void Load(Stream stream);
+```
+
+### IniConfigurationProvider
+
+```txt
+[DefaultConnection]
+ConnectionString=TestConnectionString
+Provider=SqlClient
+[Data:Inventory]
+ConnectionString=AnotherTestConnectionString
+SubHeader:Provider=MySql
+```
+
+### JsonConfigurationProvider
+```json
+{
+    'firstname': 'test',
+    'test.last.name': 'last.name',
+        'residential.address': {
+            'street.name': 'Something street',
+            'zipcode': '12345'
+        }
+}
+```
+
+### XmlConfigurationProvider
+
+```xml
+<settings>
+  <Data.Setting>
+    <DefaultConnection>
+      <Connection.String>Test.Connection.String</Connection.String>
+      <Provider>SqlClient</Provider>
+    </DefaultConnection>
+    <Inventory>
+      <ConnectionString>AnotherTestConnectionString</ConnectionString>
+      <Provider>MySql</Provider>
+    </Inventory>
+  </Data.Setting>
+</settings>
+```
