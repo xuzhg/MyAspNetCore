@@ -1,4 +1,4 @@
-## IConfigurationSource
+l## IConfigurationSource
 
 ```C#
 
@@ -25,7 +25,7 @@ Here's the implementation for the `IConfigurationSource`
   - XmlConfigurationSource
   
   
-Each implementation of `IConfigurationSource` is very simple, the `Build(...)` method wil return the corresponding `IConfigurationProvider`.
+Each implementation of `IConfigurationSource` is very simple, the `Build(...)` method will return the corresponding `IConfigurationProvider`.
 For example:
 
 ```C#
@@ -39,3 +39,5 @@ public class JsonConfigurationSource : FileConfigurationSource
 }
 ```
 The `JsonConfigurationSource` returns the `JsonConfigurationProvider`.
+
+For the `IConfigurationProvider`, please refer to [HERE](https://github.com/xuzhg/AspNetCore/blob/master/docs/Configuration/ConfigurationProvider.md)
