@@ -4,6 +4,9 @@
 
 
 ## ConfigurationProvider
+
+![ConfigurationProvider Interface](https://github.com/xuzhg/AspNetCore/blob/master/Images/ConfigurationProvider.png)
+
 It's an abstract class implemented `IConfigurationProvider` interface.
 
 It's a wrapper for the **Dictionary<string, string>**
@@ -107,6 +110,9 @@ public override void Load()
 It's a concrete class derived from `ConfigurationProvider`. 
 It overrides the `Load()` method to parse the secret files in the secret directory.
 The key is the file name, the value is the file content.
+
+## AzureKeyVaultConfigurationProvider
+It's a concrete class derived from `ConfigurationProvider`. 
 
 ## FileConfigurationProvider
 
