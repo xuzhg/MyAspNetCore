@@ -14,6 +14,15 @@ private ConfigurationReloadToken _reloadToken = new ConfigurationReloadToken();
 protected IDictionary<string, string> Data { get; set; }
 ```
 
+It has a default virtual method as below:
+```C#
+public virtual void Load()
+{
+  // nothing here.
+}
+```
+`Load()` method will be called in the construct of `ConfigurationRoot` for each provider.
+
 
 ## MemoryConfigurationProvider
 
@@ -21,7 +30,9 @@ It's concrete class derived from `ConfigurationProvider`.
 
 It simply fetches the data from `MemoryConfigurationSource.InitialData` to `Data` in its base class.
 
+It doesn't override the `Load()` method.
 The basic usage is to call the extension method for:
+
 ```C#
 public static IConfigurationBuilder AddInMemoryCollection(
             this IConfigurationBuilder configurationBuilder,
@@ -43,3 +54,40 @@ configurationBuilder.AddInMemoryCollection(dic);
 var config = configurationBuilder.Build();
 
 ```
+
+## CommandLineConfigurationProvider
+
+It's concrete class derived from `ConfigurationProvider`.
+
+#### switchMappings
+The switch is key to key mapping. for example:
+
+```C#
+var switchMappings = new Dictionary<string, string>(StringComparer.Ordinal)
+{
+    { "--KEY1", "LongKey1" },
+    { "--key1", "SuperLongKey1" },
+    { "-Key2", "LongKey2" },
+    { "-KEY2", "LongKey2"}
+};
+```
+So, the `KEY1` is mapped to `LongKey1`, etc.
+the switch key must start with `--` or `-`.
+
+#### args
+
+it will override `Load()` method to parse the `command line args`.
+
+for example:
+```C#
+var args = new string[]
+{
+     "-K1=Value1",
+     "--Key2=Value2",
+     "/Key3=Value3",
+     "--Key4", "Value4",
+     "/Key5", "Value5"
+};
+```
+the arg key must start with `--` or `-` or `/`. It can contain `=`.
+
