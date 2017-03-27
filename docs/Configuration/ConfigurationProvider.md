@@ -135,11 +135,11 @@ SubHeader:Provider=MySql
 ### JsonConfigurationProvider
 ```json
 {
-    'firstname': 'test',
-    'test.last.name': 'last.name',
-        'residential.address': {
-            'street.name': 'Something street',
-            'zipcode': '12345'
+    "firstname": "test",
+    "test.last.name": "last.name",
+        "residential.address": {
+            "street.name": "Something street",
+            "zipcode": "12345"
         }
 }
 ```
