@@ -4,7 +4,10 @@ using System.Text;
 
 namespace IoCTest
 {
-    [AttributeUsage(AttributeTargets.Constructor)]
+    [AttributeUsage(AttributeTargets.Constructor |
+                 AttributeTargets.Property |
+                 AttributeTargets.Method,
+                 AllowMultiple = false)]
     public class InjectionAttribute : Attribute
     {
     }
