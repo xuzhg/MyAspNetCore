@@ -26,7 +26,7 @@ namespace BookStore.Controllers
             }
         }
 
-        [EnableQuery]
+        [EnableQuery(PageSize = 1)]
         public IActionResult Get()
         {
             return Ok(_db.Books);
