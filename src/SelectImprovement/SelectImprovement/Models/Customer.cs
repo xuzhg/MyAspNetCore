@@ -15,7 +15,7 @@ namespace SelectImprovement.Models
 
         public Address HomeAddress { get; set; }
 
-        public IList<Address> FavoriateAddresses { get; set; }
+        public IList<Address> FavoriteAddresses { get; set; }
 
         public Order PersonOrder { get; set; }
 

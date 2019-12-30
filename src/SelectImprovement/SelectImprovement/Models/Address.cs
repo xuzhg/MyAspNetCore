@@ -13,4 +13,11 @@ namespace SelectImprovement.Models
 
         public ZipCode ZipCode { get; set; }
     }
+
+    public class BillAddress : Address
+    {
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+    }
 }
