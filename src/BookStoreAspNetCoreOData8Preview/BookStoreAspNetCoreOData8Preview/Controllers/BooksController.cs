@@ -33,7 +33,7 @@ namespace BookStore.Controllers
         }
 
         [EnableQuery]
-        public IActionResult Get(int key)
+        public IActionResult Get(int key, string version)
         {
             return Ok(_db.Books.FirstOrDefault(c => c.Id == key));
         }
