@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31507.150
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataETagWebApi", "ODataETagWebApi\ODataETagWebApi.csproj", "{1B8A8E67-39BF-49EE-9A36-6D9DB43DFA7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataETagClient", "ODataETagClient\ODataETagClient.csproj", "{35F67C30-DB7E-45E3-9969-D41D76613C9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B8A8E67-39BF-49EE-9A36-6D9DB43DFA7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B8A8E67-39BF-49EE-9A36-6D9DB43DFA7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B8A8E67-39BF-49EE-9A36-6D9DB43DFA7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B8A8E67-39BF-49EE-9A36-6D9DB43DFA7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35F67C30-DB7E-45E3-9969-D41D76613C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35F67C30-DB7E-45E3-9969-D41D76613C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35F67C30-DB7E-45E3-9969-D41D76613C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35F67C30-DB7E-45E3-9969-D41D76613C9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D606CF6-D753-4F20-95E3-EB5B068AB687}
+	EndGlobalSection
+EndGlobal
