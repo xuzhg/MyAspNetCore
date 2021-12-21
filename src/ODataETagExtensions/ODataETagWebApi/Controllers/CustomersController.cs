@@ -23,6 +23,9 @@ namespace ODataETagWebApi.Controllers
         [EnableQuery]
         public IActionResult Get()
         {
+            $filter = Id eq 2
+
+                ==> Customers.Where(c => c.Id == 2);
             return Ok(Customers);
         }
 

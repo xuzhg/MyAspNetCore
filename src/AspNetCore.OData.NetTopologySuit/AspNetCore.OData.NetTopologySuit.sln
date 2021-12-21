@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31612.314
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore.OData.NetTopologySuit", "AspNetCore.OData.NetTopologySuit\AspNetCore.OData.NetTopologySuit.csproj", "{967BAC51-47CD-4D99-98E8-1C0EB873F09A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.OData", "..\..\..\..\temp\AspNetCoreOData\src\Microsoft.AspNetCore.OData\Microsoft.AspNetCore.OData.csproj", "{FAB80339-5250-4983-B3F9-ED488E79C8BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{967BAC51-47CD-4D99-98E8-1C0EB873F09A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{967BAC51-47CD-4D99-98E8-1C0EB873F09A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{967BAC51-47CD-4D99-98E8-1C0EB873F09A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{967BAC51-47CD-4D99-98E8-1C0EB873F09A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAB80339-5250-4983-B3F9-ED488E79C8BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAB80339-5250-4983-B3F9-ED488E79C8BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAB80339-5250-4983-B3F9-ED488E79C8BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAB80339-5250-4983-B3F9-ED488E79C8BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DA8A101C-C343-46E1-A9C0-D356FC47ED34}
+	EndGlobalSection
+EndGlobal

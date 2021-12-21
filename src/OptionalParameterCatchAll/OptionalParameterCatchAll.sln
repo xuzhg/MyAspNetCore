@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptionalParameterCatchAll", "OptionalParameterCatchAll\OptionalParameterCatchAll.csproj", "{BA931762-769C-4517-B055-DB459D4BB69F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA931762-769C-4517-B055-DB459D4BB69F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA931762-769C-4517-B055-DB459D4BB69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA931762-769C-4517-B055-DB459D4BB69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA931762-769C-4517-B055-DB459D4BB69F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF10AB68-06A5-4403-9752-2F3058927A43}
+	EndGlobalSection
+EndGlobal
