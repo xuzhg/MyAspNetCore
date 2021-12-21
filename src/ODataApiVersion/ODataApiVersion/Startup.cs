@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using ODataApiVersion.Extensions;
+using System.Linq;
 
 namespace ODataApiVersion
 {
@@ -34,6 +35,10 @@ namespace ODataApiVersion
                 ServiceDescriptor.Transient<IApplicationModelProvider, MyODataRoutingApplicationModelProvider>());
 
             services.TryAddEnumerable(ServiceDescriptor.Singleton<MatcherPolicy, MyODataRoutingMatcherPolicy>());
+
+            services.AddSwaggerGen(
+                opt => opt.ResolveConflictingActions(a => a.First()));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +50,12 @@ namespace ODataApiVersion
             }
 
             app.UseODataRouteDebug(); // Remove it if not needed
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "OData 8.x OpenAPI");
+            });
 
             app.UseRouting();
 
