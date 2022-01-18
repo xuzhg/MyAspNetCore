@@ -42,6 +42,8 @@ namespace NewQueryOptionIn8.Extensions
                 // Lambda expression methods:
                 if (_categories.Contains(node.Text))
                 {
+                    // Be noted: ToLowerInvariant is not enabled/supported in EF Core.
+                    // Switch to use "ToLower()" should work in EF Core.
                     Expression<Func<Product, bool>> exp = p => p.Category.ToString().ToLowerInvariant() == node.Text.ToLowerInvariant();
                     return exp;
                 }
@@ -68,7 +70,7 @@ namespace NewQueryOptionIn8.Extensions
             }
             else
             {
-                // Linq express tree methods:
+                // Linq expression tree methods:
                 Expression exp = BindSingleValueNode(searchClause.Expression, context);
 
                 LambdaExpression lambdaExp = Expression.Lambda(exp, context.CurrentParameter);
