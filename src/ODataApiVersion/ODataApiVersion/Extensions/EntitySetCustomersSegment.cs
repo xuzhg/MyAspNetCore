@@ -16,6 +16,7 @@ namespace ODataApiVersion.Extensions
         public override IEnumerable<string> GetTemplates(ODataRouteOptions options)
         {
             yield return "/Customers";
+            yield return "/Customers/$count";
         }
 
         public override bool TryTranslate(ODataTemplateTranslateContext context)
@@ -26,8 +27,16 @@ namespace ODataApiVersion.Extensions
 
             if (edmEntitySet != null)
             {
+                bool countRequest = context.HttpContext.Request.Path.Value.EndsWith("/$count");
+
                 EntitySetSegment segment = new EntitySetSegment(edmEntitySet);
                 context.Segments.Add(segment);
+
+                if (countRequest)
+                {
+                    context.Segments.Add(CountSegment.Instance);
+                }
+
                 return true;
             }
 
