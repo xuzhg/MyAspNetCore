@@ -4,6 +4,17 @@ using gRPC.OData.Client;
 
 string baseUri = "https://localhost:7260";
 
+#region Codes for Post
+//GrpcBookstoreClient gRPCbookStore = new GrpcBookstoreClient(baseUri);
+//await gRPCbookStore.ListShelves();
+//await gRPCbookStore.ListBooks(2);
+
+//ODataBookstoreClient oDataBookStore = new ODataBookstoreClient(baseUri);
+//await oDataBookStore.ListShelves();
+//await oDataBookStore.ListBooks(2);
+#endregion
+
+
 IBookStoreClient gRPCbookStore = new GrpcBookstoreClient(baseUri);
 IBookStoreClient oDataBookStore = new ODataBookstoreClient(baseUri);
 

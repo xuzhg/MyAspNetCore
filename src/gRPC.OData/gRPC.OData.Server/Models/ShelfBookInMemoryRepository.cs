@@ -101,7 +101,7 @@ namespace gRPC.OData.Server.Models
                 throw new InvalidOperationException($"No shelf with Id {shelfId} existed.");
             }
 
-            long maxId = 1;
+            long maxId = 0;
             if (shelf.Books.Count > 0)
             {
                 maxId = shelf.Books.Max(b => b.Id);

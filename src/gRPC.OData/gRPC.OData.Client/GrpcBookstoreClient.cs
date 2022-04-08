@@ -25,6 +25,7 @@ namespace gRPC.OData.Client
             {
                 Console.WriteLine($"\t-{shelf.Id}): {shelf.Theme}");
             }
+            Console.WriteLine();
         }
 
         public async Task<Shelf> CreateShelf(Shelf shelf)
@@ -35,7 +36,7 @@ namespace gRPC.OData.Client
             var client = new Bookstore.BookstoreClient(channel);
 
             shelf = await client.CreateShelfAsync(new CreateShelfRequest { Shelf = shelf });
-            Console.WriteLine($"\t-{shelf.Id}): {shelf.Theme}");
+            Console.WriteLine($"\t-{shelf.Id}): {shelf.Theme}\n");
 
             return shelf;
         }
@@ -83,7 +84,7 @@ namespace gRPC.OData.Client
             var client = new Bookstore.BookstoreClient(channel);
 
             book = await client.CreateBookAsync(new CreateBookRequest { Shelf = shelfId, Book = book });
-            Console.WriteLine($"\t-{book.Id}): <<{book.Title}>> by {book.Author}");
+            Console.WriteLine($"\t-{book.Id}): <<{book.Title}>> by {book.Author}\n");
 
             return book;
         }
@@ -96,7 +97,7 @@ namespace gRPC.OData.Client
             var client = new Bookstore.BookstoreClient(channel);
 
             Book book = await client.GetBookAsync(new GetBookRequest { Shelf = shelfId, Book = bookId });
-            Console.WriteLine($"\t-{book.Id}): <<{book.Title}>> by {book.Author}");
+            Console.WriteLine($"\t-{book.Id}): <<{book.Title}>> by {book.Author}\n");
         }
 
         public async Task DeleteBook(long shelfId, long bookId)

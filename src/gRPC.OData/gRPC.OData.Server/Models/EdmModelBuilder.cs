@@ -14,7 +14,6 @@ namespace gRPC.OData.Server.Models
             var shelf = builder.EntityType<Shelf>();
             shelf.HasKey(b => b.Id);
             shelf.Property(b => b.Theme);
-            //shelf.HasMany(b => b.Books); // a relationship
 
             var bookMessage = builder.EntityType<Book>();
             bookMessage.HasKey(b => b.Id);
