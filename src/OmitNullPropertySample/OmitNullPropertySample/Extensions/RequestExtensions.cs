@@ -10,7 +10,7 @@ namespace OmitNullPropertySample.Extensions
 {
     public static class RequestExtensions
     {
-        public static bool IsOmitNulls(this HttpRequest request)
+        public static bool ShouldOmitNullValues(this HttpRequest request)
         {
             // for simplicity, we check the prefer header
             string preferHeader = null;

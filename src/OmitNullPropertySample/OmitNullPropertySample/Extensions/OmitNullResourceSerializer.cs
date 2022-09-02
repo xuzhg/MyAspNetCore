@@ -15,7 +15,7 @@ namespace OmitNullPropertySample.Extensions
 
         public override ODataProperty CreateStructuralProperty(IEdmStructuralProperty structuralProperty, ResourceContext resourceContext)
         {
-            bool isOmitNulls = resourceContext.Request.IsOmitNulls();
+            bool isOmitNulls = resourceContext.Request.ShouldOmitNullValues();
             if (isOmitNulls)
             {
                 object propertyValue = resourceContext.GetPropertyValue(structuralProperty.Name);
@@ -32,7 +32,7 @@ namespace OmitNullPropertySample.Extensions
 
         public override ODataNestedResourceInfo CreateComplexNestedResourceInfo(IEdmStructuralProperty complexProperty, PathSelectItem pathSelectItem, ResourceContext resourceContext)
         {
-            bool isOmitNulls = resourceContext.Request.IsOmitNulls();
+            bool isOmitNulls = resourceContext.Request.ShouldOmitNullValues();
             if (isOmitNulls)
             {
                 object propertyValue = resourceContext.GetPropertyValue(complexProperty.Name);
@@ -48,7 +48,7 @@ namespace OmitNullPropertySample.Extensions
 
         public override ODataNestedResourceInfo CreateNavigationLink(IEdmNavigationProperty navigationProperty, ResourceContext resourceContext)
         {
-            bool isOmitNulls = resourceContext.Request.IsOmitNulls();
+            bool isOmitNulls = resourceContext.Request.ShouldOmitNullValues();
             if (isOmitNulls)
             {
                 object propertyValue = resourceContext.GetPropertyValue(navigationProperty.Name);
