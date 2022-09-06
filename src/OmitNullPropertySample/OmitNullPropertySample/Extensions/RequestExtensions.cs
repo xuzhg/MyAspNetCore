@@ -50,7 +50,7 @@ namespace OmitNullPropertySample.Extensions
             {
                 response.Headers["Preference-Applied"] = "omit-values=nulls";
             }
-            else
+            else if (!prefer_applied.Contains("omit-values=nulls"))
             {
                 response.Headers["Preference-Applied"] = $"{prefer_applied},omit-values=nulls";
             }
