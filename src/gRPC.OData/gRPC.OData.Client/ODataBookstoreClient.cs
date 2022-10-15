@@ -25,7 +25,11 @@ namespace gRPC.OData.Client
             Console.WriteLine($"\nOData: List Shelves:");
 
             string requestUri = $"{_baseUri}/odata/shelves";
-            using var client = new HttpClient();
+            using var client = new HttpClient
+            {
+                DefaultRequestVersion = HttpVersion.Version20,
+                DefaultVersionPolicy = HttpVersionPolicy.RequestVersionOrHigher
+            };
             var response = await client.GetAsync(requestUri);
             Console.WriteLine("--Status code: " + response.StatusCode.ToString());
             string body = await response.Content.ReadAsStringAsync();
@@ -40,8 +44,16 @@ namespace gRPC.OData.Client
 
             string requestUri = $"{_baseUri}/odata/shelves";
 
-            using var client = new HttpClient();
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, requestUri);
+            using var client = new HttpClient
+            {
+                DefaultRequestVersion = HttpVersion.Version20,
+                DefaultVersionPolicy = HttpVersionPolicy.RequestVersionOrHigher
+            };
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, requestUri)
+            {
+                Version= HttpVersion.Version20,
+                VersionPolicy = HttpVersionPolicy.RequestVersionOrHigher,
+            };
             request.Content = new StringContent(JsonSerializer.Serialize(shelf));
             request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
 
@@ -62,7 +74,11 @@ namespace gRPC.OData.Client
             Console.WriteLine($"OData: Get shelf at '{shelfId}':");
 
             string requestUri = $"{_baseUri}/odata/shelves/{shelfId}";
-            using var client = new HttpClient();
+            using var client = new HttpClient
+            {
+                DefaultRequestVersion = HttpVersion.Version20,
+                DefaultVersionPolicy = HttpVersionPolicy.RequestVersionOrHigher
+            };
             var response = await client.GetAsync(requestUri);
             Console.WriteLine("--Status code: " + response.StatusCode.ToString());
             string body = await response.Content.ReadAsStringAsync();
@@ -76,7 +92,11 @@ namespace gRPC.OData.Client
             Console.WriteLine($"OData: Delete shelf at '{shelfId}':");
 
             string requestUri = $"{_baseUri}/odata/shelves/{shelfId}";
-            using var client = new HttpClient();
+            using var client = new HttpClient
+            {
+                DefaultRequestVersion = HttpVersion.Version20,
+                DefaultVersionPolicy = HttpVersionPolicy.RequestVersionOrHigher
+            };
             var response = await client.DeleteAsync(requestUri);
             Console.WriteLine("--Status code: " + response.StatusCode.ToString());
             Console.WriteLine();
@@ -87,7 +107,11 @@ namespace gRPC.OData.Client
             Console.WriteLine($"\nOData: List books at shelf '{shelfId}':");
 
             string requestUri = $"{_baseUri}/odata/shelves/{shelfId}/books";
-            using var client = new HttpClient();
+            using var client = new HttpClient
+            {
+                DefaultRequestVersion = HttpVersion.Version20,
+                DefaultVersionPolicy = HttpVersionPolicy.RequestVersionOrHigher
+            };
             var response = await client.GetAsync(requestUri);
             Console.WriteLine("--Status code: " + response.StatusCode.ToString());
             string body = await response.Content.ReadAsStringAsync();
@@ -102,8 +126,16 @@ namespace gRPC.OData.Client
 
             string requestUri = $"{_baseUri}/odata/shelves/{shelfId}/books";
 
-            using var client = new HttpClient();
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, requestUri);
+            using var client = new HttpClient
+            {
+                DefaultRequestVersion = HttpVersion.Version20,
+                DefaultVersionPolicy = HttpVersionPolicy.RequestVersionOrHigher
+            };
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, requestUri)
+            {
+                Version= HttpVersion.Version20,
+                VersionPolicy = HttpVersionPolicy.RequestVersionOrHigher,
+            };
             request.Content = new StringContent(JsonSerializer.Serialize(book));
             request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
 
@@ -123,7 +155,11 @@ namespace gRPC.OData.Client
             Console.WriteLine($"OData: Get book '{bookId}' from shelf '{shelfId}':");
 
             string requestUri = $"{_baseUri}/odata/shelves/{shelfId}/books/{bookId}";
-            using var client = new HttpClient();
+            using var client = new HttpClient
+            {
+                DefaultRequestVersion = HttpVersion.Version20,
+                DefaultVersionPolicy = HttpVersionPolicy.RequestVersionOrHigher
+            };
             var response = await client.GetAsync(requestUri);
             Console.WriteLine("--Status code: " + response.StatusCode.ToString());
             string body = await response.Content.ReadAsStringAsync();
@@ -137,7 +173,11 @@ namespace gRPC.OData.Client
             Console.WriteLine($"OData: Delete book '{bookId}' from shelf '{shelfId}':");
 
             string requestUri = $"{_baseUri}/odata/shelves/{shelfId}/books/{bookId}";
-            using var client = new HttpClient();
+            using var client = new HttpClient
+            {
+                DefaultRequestVersion = HttpVersion.Version20,
+                DefaultVersionPolicy = HttpVersionPolicy.RequestVersionOrHigher
+            };
             var response = await client.DeleteAsync(requestUri);
             Console.WriteLine("--Status code: " + response.StatusCode.ToString());
             Console.WriteLine();
