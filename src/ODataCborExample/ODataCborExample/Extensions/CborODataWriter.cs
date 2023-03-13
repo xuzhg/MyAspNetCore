@@ -41,8 +41,17 @@ public partial class CborODataWriter : IJsonWriter, IJsonWriterAsync
         throw new NotImplementedException();
     }
 
+    /// <summary>
+    /// Flush will be called twice from OData library
+    /// Make sure we only write the bytes once.
+    /// </summary>
     public void Flush()
     {
+        if (!_cborWriter.IsWriteCompleted)
+        {
+            return;
+        }
+
         var encode = _cborWriter.Encode();
 
         // if you want to get Base64 string, use the following codes
@@ -53,13 +62,14 @@ public partial class CborODataWriter : IJsonWriter, IJsonWriterAsync
         // Be noted, if you write it as base64, please comment out the following code.
         _stream.Write(encode, 0, encode.Length);
         _stream.Flush();
+
+        _cborWriter.Reset();
     }
 
     public void StartArrayScope()
     {
         _cborWriter.WriteStartArray(null);
     }
-
 
     public void StartObjectScope()
     {
