@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33209.295
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataCborExample", "ODataCborExample\ODataCborExample.csproj", "{F79FE7FC-A24B-47E2-A83A-51E7C754D3E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F79FE7FC-A24B-47E2-A83A-51E7C754D3E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F79FE7FC-A24B-47E2-A83A-51E7C754D3E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F79FE7FC-A24B-47E2-A83A-51E7C754D3E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F79FE7FC-A24B-47E2-A83A-51E7C754D3E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0472F78A-AF8C-4CB2-ADB8-CAA14E85212B}
+	EndGlobalSection
+EndGlobal
