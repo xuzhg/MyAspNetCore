@@ -24,6 +24,9 @@ namespace ODataCborExample.Extensions
         {
             if (_messageInfo.MediaType.Type == "application" && _messageInfo.MediaType.SubType == "cbor")
             {
+                // OData provides the StreamReader by default, so it's saft to cast to StreamReader.
+                // You'd not rely on this assumption. And ODL should provide 
+                // IStreamBasedODataJosonReaderFactory.
                 StreamReader reader = textReader as StreamReader;
                 return new CborODataReader(reader.BaseStream);
             }
