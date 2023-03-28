@@ -17,12 +17,15 @@ public class CustomizedFormat : ODataFormat
             new CustomizedOutputContext(this, messageWriterSettings, messageInfo));
     }
 
+    public override Task<ODataInputContext> CreateInputContextAsync(
+    ODataMessageInfo messageInfo, ODataMessageReaderSettings messageReaderSettings)
+    {
+        return Task.FromResult<ODataInputContext>(
+            new CustomizedInputContext(this, messageReaderSettings, messageInfo));
+    }
+
     #region Synchronization not used
     public override ODataInputContext CreateInputContext(
-        ODataMessageInfo messageInfo, ODataMessageReaderSettings messageReaderSettings)
-        => throw new NotImplementedException();
-
-    public override Task<ODataInputContext> CreateInputContextAsync(
         ODataMessageInfo messageInfo, ODataMessageReaderSettings messageReaderSettings)
         => throw new NotImplementedException();
 

@@ -23,7 +23,10 @@ public class CsvFormat : ODataFormat
 
     public override Task<ODataInputContext> CreateInputContextAsync(
         ODataMessageInfo messageInfo, ODataMessageReaderSettings messageReaderSettings)
-        => throw new NotImplementedException();
+    {
+        return Task.FromResult<ODataInputContext>(
+            new CustomizedInputContext(this, messageReaderSettings, messageInfo));
+    }
 
     public override ODataOutputContext CreateOutputContext(
         ODataMessageInfo messageInfo, ODataMessageWriterSettings messageWriterSettings)

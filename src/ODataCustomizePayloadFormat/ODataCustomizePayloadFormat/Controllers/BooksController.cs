@@ -29,6 +29,14 @@ public class BooksController : ControllerBase
         return b;
     }
 
+    [HttpPost]
+    [EnableQuery]
+    public IActionResult Post([FromBody] Book book)
+    {
+        book.Id = 999; // hardcoding for verify
+        return Ok(book);
+    }
+
     private static IList<Book> GetBooks()
     => new List<Book>
     {
