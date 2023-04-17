@@ -1,0 +1,19 @@
+﻿syntax = "proto3";
+
+package bookstores;
+
+// A shelf resource.
+message Shelf {
+    optional int64 id = 1;
+    optional string theme = 2;
+    repeated Book books = 3;
+}
+
+// A book resource.
+message Book {
+    optional int64 id = 1;
+    optional string author = 2;
+    optional string title = 3;
+    optional string isbn = 4;
+    optional int32 page = 5;
+}
