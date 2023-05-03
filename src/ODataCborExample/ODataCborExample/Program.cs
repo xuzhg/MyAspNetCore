@@ -41,6 +41,7 @@ builder.Services.AddControllers().
             }
         ));
 
+builder.Services.AddScoped<IMessageWriter, LoggingMessageWriter>();
 
 builder.Services.AddControllers(opt =>
 {
@@ -58,6 +59,8 @@ var app = builder.Build();
 app.UseODataRouteDebug();
 
 app.UseAuthorization();
+
+app.UseMyCborLogger();
 
 app.MapControllers();
 

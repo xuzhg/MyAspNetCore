@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33209.295
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODataCborExample", "ODataCborExample\ODataCborExample.csproj", "{F79FE7FC-A24B-47E2-A83A-51E7C754D3E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataCborClient", "ODataCborClient\ODataCborClient.csproj", "{5B0CBD85-31BD-4F6B-BF80-83444C0428AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODataCborClient", "ODataCborClient\ODataCborClient.csproj", "{5B0CBD85-31BD-4F6B-BF80-83444C0428AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
