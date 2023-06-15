@@ -13,5 +13,4 @@ public class Course
     private string AliasName { get => Title + "_alias"; }
 
     public IList<int> Credits { get; set; }
-
 }

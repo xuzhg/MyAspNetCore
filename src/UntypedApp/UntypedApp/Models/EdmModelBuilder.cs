@@ -14,6 +14,7 @@ public class EdmModelBuilder
     public static IEdmModel GetEdmModel()
     {
         var builder = new ODataConventionModelBuilder();
+        builder.ComplexType<Address>(); // add Address complex type explicitly since there's no reference to this type.
         builder.EntitySet<Person>("People");
         EdmModel model = (EdmModel)builder.GetEdmModel();
 
