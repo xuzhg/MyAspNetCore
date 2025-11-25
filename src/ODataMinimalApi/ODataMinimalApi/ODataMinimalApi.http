@@ -1,0 +1,108 @@
+﻿@ODataMinimalApi_HostAddress = http://localhost:5134
+
+###
+GET {{ODataMinimalApi_HostAddress}}/json/customers
+
+###
+GET {{ODataMinimalApi_HostAddress}}/odata/customers
+
+###
+GET {{ODataMinimalApi_HostAddress}}/modelconfig/customers
+
+###
+
+GET {{ODataMinimalApi_HostAddress}}/withmodel/customers
+
+###
+
+
+GET {{ODataMinimalApi_HostAddress}}/v401/customers
+
+###
+
+GET {{ODataMinimalApi_HostAddress}}/baseaddress/customers
+
+###
+
+GET {{ODataMinimalApi_HostAddress}}/queryoptions/customers
+###
+
+GET {{ODataMinimalApi_HostAddress}}/queryoptions/customers?$expand=info($select=Phone)&$filter=startswith(Name,'A')&$select=Name
+
+###
+
+GET {{ODataMinimalApi_HostAddress}}/queryfilter/customers?$select=location($select=street)&$orderby=Id&$select=Name
+
+
+###
+GET {{ODataMinimalApi_HostAddress}}/$document
+
+
+### 
+GET {{ODataMinimalApi_HostAddress}}/$metadata
+
+###
+GET {{ODataMinimalApi_HostAddress}}/function/customers/addsuffix(suffix='%20Sr')?$select=name
+
+###
+
+@id=1
+POST {{ODataMinimalApi_HostAddress}}/action/customers/{{id}}/rateByName
+Content-Type: application/json 
+
+{ 
+  "name": "kerry",
+  "age":16
+}
+
+###
+
+PATCH {{ODataMinimalApi_HostAddress}}/delta/customers/1?$expand=location&$select=id,name,location
+Content-Type: application/json 
+
+{ 
+  "Name": "kerry",
+  "Location@odata.delta": {
+    "street": "new street"
+  }
+} 
+
+###
+
+POST {{ODataMinimalApi_HostAddress}}/odata/$batch
+Content-Type: application/json 
+Accept: application/json
+
+{
+  "requests": [
+    {
+      "id": "1",
+      "atomicityGroup": "f7de7314-2f3d-4422-b840-ada6d6de0f18",
+      "method": "POST",
+      "url": "http://localhost:5134/action/customers/2/rateByName",
+      "headers": {
+        "OData-Version": "4.0",
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "body": {
+        "name": "wu",
+        "age": 20
+      }
+    },
+    {
+      "id": "2",
+      "atomicityGroup": "f7de7314-2f3d-4422-b840-ada6d6de0f18",
+      "method": "GET",
+      "url": "http://localhost:5134/queryoptions/customers?$expand=info($select=Phone)&$filter=startswith(Name,'A')&$select=Name",
+      "headers": {
+             "OData-Version": "4.0",
+             "Content-Type": "application/json;odata.metadata=minimal",
+             "Accept": "application/json;odata.metadata=minimal"
+         }
+     }
+  ]
+}
+
+
+###
