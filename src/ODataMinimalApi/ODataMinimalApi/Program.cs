@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.OData.Deltas;
 using Microsoft.AspNetCore.OData.Edm;
 using Microsoft.AspNetCore.OData.Formatter;
 using Microsoft.AspNetCore.OData.Query;
+using Microsoft.AspNetCore.OData.Query.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OData;
 using Microsoft.OData.Edm;
@@ -64,6 +65,12 @@ app.MapGet("queryfilter/customers", (ApplicationDb db) => db.Customers.Include(s
     .AddODataQueryEndpointFilter()
     .WithODataResult()
     ;
+
+// Enabled $search
+app.MapGet("/search/customers", (ApplicationDb db, ODataQueryOptions<Customer> queryOptions) =>
+    queryOptions.ApplyTo(db.Customers.Include(s => s.Orders)))
+    .WithODataResult()
+    .WithODataServices(c => c.AddSingleton<ISearchBinder, MySearchBinder>());
 
 app.MapODataServiceDocument("/$document", model);
 

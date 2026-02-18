@@ -33,6 +33,8 @@ GET {{ODataMinimalApi_HostAddress}}/queryoptions/customers?$expand=info($select=
 
 GET {{ODataMinimalApi_HostAddress}}/queryfilter/customers?$select=location($select=street)&$orderby=Id&$select=Name
 
+###
+GET {{ODataMinimalApi_HostAddress}}/search/customers?$search=Son
 
 ###
 GET {{ODataMinimalApi_HostAddress}}/$document
